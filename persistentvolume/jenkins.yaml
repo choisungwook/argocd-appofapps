@@ -9,7 +9,7 @@ spec:
     storage: 20Gi
   persistentVolumeReclaimPolicy: Retain
   nfs:
-    path: /mnt/nfs/jenkins
+    path: /mnt/jenkins
     server: 192.168.219.99
   claimRef:
     name: jenkins-pvc
