@@ -10,7 +10,6 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   hostPath:
     path: /mnt/jenkins
-    server: 192.168.219.99
   claimRef:
     name: jenkins-pvc
     namespace: jenkins
