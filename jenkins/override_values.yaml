@@ -6,3 +6,5 @@ controller:
   image: "choisunguk/jenkins"
   tag: "v4"
   installPlugins: []
+  nodeSelector: 
+    kubernetes.io/hostname: k8s-worker-1
