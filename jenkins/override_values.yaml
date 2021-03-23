@@ -1,0 +1,8 @@
+persistence:
+  size: 20Gi
+  existingClaim: jenkins-pvc
+
+controller:
+  image: "choisunguk/jenkins"
+  tag: "v4"
+  installPlugins: []
