@@ -1,9 +1,3 @@
-alertmanager:
-  ingress:
-    enabled: false
-    # change here
-    hosts:
-      - choilab.com
 prometheus:
   # change here
   prometheusSpec:
