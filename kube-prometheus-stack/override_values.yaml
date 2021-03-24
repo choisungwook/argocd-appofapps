@@ -14,7 +14,7 @@ prometheus:
               storage: 5Gi
         selector:
           matchLabels:
-            app: prometheus
+            app: my-example-prometheus
   ingress:
     enabled: true
     # change here
@@ -27,9 +27,11 @@ grafana:
   adminPassword: password1234
   ingress:
     enabled: true
-    annotations:
-      nginx.ingress.kubernetes.io/rewrite-target: /$1
     # change here
-    path: /grafana/?(.*)
+    path: /grafana
     hosts:
       - choilab.com
+  grafana.ini:
+    server:
+      root_url: http://choilab.com/grafana
+      domain: choilab.com
