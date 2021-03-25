@@ -1,6 +1,13 @@
 persistence:
   size: 20Gi
   existingClaim: jenkins-pvc
+  voluems:
+  - name: docker-sock
+    hostPath:
+      path: /var/run/docker.sock
+  mounts:
+  - name: docker-sock
+    mountPath: /var/run/docker.sock
 
 controller:
   image: "choisunguk/jenkins"
