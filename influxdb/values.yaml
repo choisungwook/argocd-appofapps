@@ -258,7 +258,7 @@ initScripts:
   enabled: true
   scripts:
     init.iql: |+
-      CREATE DATABASE "jmeter" WITH DURATION 30d REPLICATION 1 NAME "rp_30d"
+      CREATE DATABASE "jmeter"
 
 backup:
   enabled: false
