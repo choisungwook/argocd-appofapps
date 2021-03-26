@@ -1,16 +1,16 @@
 image:
-  name: ""
-  tag: ""
+  name: "choisunguk/jmeter"
+  tag: "latest"
 
 master:
   replicaCount: 1
   nodeSelector:
-    kubernetes.io/hostname: "test"
+    kubernetes.io/hostname: worker1
   persistence:
-    enabled: false
-    mountPath: "test"
+    enabled: true
+    mountPath: "/jmeter/apache-jmeter-3.3/script.jmx"
     hostPath:
-      path: "test"
+      path:  "/tmp/script.jmx"
 
 server:
-  replicaCount: 3
+  replicaCount: 2

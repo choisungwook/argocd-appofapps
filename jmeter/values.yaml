@@ -1,6 +1,6 @@
 image:
-  name: ""
-  tag: ""
+  name: "choisunguk/jmeter"
+  tag: "latest"
 
 master:
   replicaCount: 1
@@ -12,4 +12,4 @@ master:
       path: ""
 
 server:
-  replicaCount: 3
+  replicaCount: 1
