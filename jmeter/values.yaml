@@ -7,9 +7,9 @@ master:
   nodeSelector: {}
   persistence:
     enabled: false
-    mountPath: {}
+    mountPath: ""
     hostPath:
-      path: {}
+      path: ""
 
 server:
   replicaCount: 3
