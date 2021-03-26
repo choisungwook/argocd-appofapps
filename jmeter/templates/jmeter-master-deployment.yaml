@@ -24,10 +24,10 @@ spec:
         app.kubernetes.io/instance: {{ .Release.Name }}
         app.kubernetes.io/component: master
     spec:
-{{- if .Values.matser.nodeSelector }}
+    {{- with .Values.matser.nodeSelector }}
       nodeSelector:
-{{ toYaml .Values.matser.nodeSelector | indent 8 }}
-{{- end }}
+{{ toYaml . | indent 8 }}
+    {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"          
