@@ -35,11 +35,11 @@ spec:
             - master
           ports:
             - containerPort: 60000
-        {{- if .Values.master.persistence.enabled }}
-        volumeMounts:
-        - name: jmx
-          mountPath: {{ .Values.master.persistence.mountPath }}
-        {{- end }}
+          {{- if .Values.master.persistence.enabled }}
+          volumeMounts:
+            - name: jmx
+              mountPath: {{ .Values.master.persistence.mountPath }}
+          {{- end }}
       {{- if .Values.master.persistence.enabled }}
       volumes:
         - name: jmx
