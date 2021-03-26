@@ -5,9 +5,10 @@ persistence:
   - name: docker-sock
     hostPath:
       path: /var/run/docker.sock
-  # mounts:
-  # - name: docker-sock
-  #   mountPath: /var/run/docker.sock
+      file: Socket
+  mounts:
+  - name: docker-sock
+    mountPath: /var/run/docker.sock
 
 controller:
   image: "choisunguk/jenkins"
@@ -20,12 +21,3 @@ controller:
     enabled: true
     hostName: "choilab.com"
     path: "/jenkins"
-  customInitContainers:
-  - name: custom-init
-    image: "alpine:3.7"
-    imagePullPolicy: Always
-    volumeMounts:
-    - name: docker-sock
-      mountPath: /var/run/docker.sock
-    command: ["/bin/sh"]
-    args: ["-c", "chmod 644 /var/run/docker.sock"]
