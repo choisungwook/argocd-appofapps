@@ -1,0 +1,16 @@
+image:
+  name: ""
+  tag: ""
+
+master:
+  replicaCount: 1
+  nodeSelector:
+    kubernetes.io/hostname: "test"
+  persistence:
+    enabled: false
+    mountPath: "test"
+    hostPath:
+      path: "test"
+
+server:
+  replicaCount: 3
