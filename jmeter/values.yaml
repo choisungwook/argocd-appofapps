@@ -1,0 +1,9 @@
+image:
+  name: ""
+  tag: ""
+
+master:
+  replicaCount: 1
+  
+server:
+  replicaCount: 3
