@@ -24,6 +24,9 @@ spec:
         app.kubernetes.io/instance: {{ .Release.Name }}
         app.kubernetes.io/component: master
     spec:
+      {{ if .Values.matser.nodeSelector }}
+      nodeSelector: {{ .Values.matser.nodeSelector }}
+      {{ end }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"          
@@ -31,3 +34,15 @@ spec:
             - master
           ports:
             - containerPort: 60000
+        {{ if .Values.master.persistence.enabled }}
+        volumeMounts:
+        - name: jmx
+          mountPath: {{ .Values.master.persistence.mountPath }}
+        {{ end }}
+      {{ if .Values.master.persistence.enabled }}
+      volumes:
+        - name: jmx
+          hostPath:
+            path: {{ .Values.master.persistence.hostPath.path }}
+      {{ end }}
+
