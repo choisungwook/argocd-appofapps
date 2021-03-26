@@ -4,12 +4,12 @@ image:
 
 master:
   replicaCount: 1
-  nodeSelector: ""
+  nodeSelector: {}
   persistence:
     enabled: false
-    mountPath: ""
+    mountPath: {}
     hostPath:
-      path: ""
+      path: {}
 
 server:
   replicaCount: 3
