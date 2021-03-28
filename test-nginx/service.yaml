@@ -1,10 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: test-nginx-service
+  name: nginx-test-service
+spec:
   selector:
     app: nginx-test
   ports:
-    - protocol: TCP
+    - name: http
+      protocol: TCP
       port: 80
       targetPort: 80
