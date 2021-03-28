@@ -4,8 +4,6 @@ image:
 
 master:
   replicaCount: 1
-  nodeSelector:
-    kubernetes.io/hostname: worker1
   persistence:
     enabled: true
     mountPath: "/jmeter/apache-jmeter-3.3/script.jmx"

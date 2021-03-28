@@ -4,7 +4,8 @@ image:
 
 master:
   replicaCount: 1
-  nodeSelector: ""
+  nodeSelector: {}
+  # kubernetes.io/hostname: worker1
   persistence:
     enabled: false
     mountPath: ""
