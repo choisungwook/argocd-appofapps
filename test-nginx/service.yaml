@@ -5,6 +5,7 @@ metadata:
 spec:
   selector:
     app: nginx-test
+  type: NodePort
   ports:
     - name: http
       protocol: TCP
