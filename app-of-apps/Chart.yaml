@@ -1,0 +1,4 @@
+apiVersion: v1
+name: "choilab-app"
+description: "choilab app of apps"
+version: 0.1.0

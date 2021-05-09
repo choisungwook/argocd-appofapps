@@ -1,0 +1,23 @@
+{{- range $app := .Values.apps }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ $app }}
+spec:
+  destination:
+    name: ''
+    namespace: {{ $app }}
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: {{ $app }}
+    repoURL: 'git@github.com:choisungwook/argocd-appofapps.git'
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - override_values.yaml
+  project: default
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated: null
+{{ end -}}
