@@ -1,0 +1,23 @@
+persistence:
+  size: 20Gi
+  existingClaim: jenkins-pvc
+  volumes:
+  - name: docker-sock
+    hostPath:
+      path: /var/run/docker.sock
+      type: Socket
+  mounts:
+  - name: docker-sock
+    mountPath: /var/run/docker.sock
+
+controller:
+  image: "choisunguk/jenkins"
+  tag: "v4"
+  installPlugins: []
+  nodeSelector: 
+    kubernetes.io/hostname: k8s-worker-1
+  jenkinsUriPrefix: "/jenkins"
+  ingress:
+    enabled: true
+    hostName: "choilab.com"
+    path: "/jenkins"
