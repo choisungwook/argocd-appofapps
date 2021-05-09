@@ -1,6 +1,6 @@
 persistence:
-  size: 20Gi
-  existingClaim: jenkins-pvc
+  size: 50Gi  
+  storageClass: nfs-storage
   volumes:
   - name: docker-sock
     hostPath:
@@ -12,10 +12,8 @@ persistence:
 
 controller:
   image: "choisunguk/jenkins"
-  tag: "v4"
+  tag: "v5"
   installPlugins: []
-  nodeSelector: 
-    kubernetes.io/hostname: k8s-worker-1
   jenkinsUriPrefix: "/jenkins"
   ingress:
     enabled: true
