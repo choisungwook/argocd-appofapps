@@ -1,0 +1,21 @@
+persistence:
+  size: 50Gi  
+  storageClass: nfs-storage
+  volumes:
+  - name: docker-sock
+    hostPath:
+      path: /var/run/docker.sock
+      type: Socket
+  mounts:
+  - name: docker-sock
+    mountPath: /var/run/docker.sock
+
+controller:
+  image: "choisunguk/jenkins"
+  tag: "v5"
+  installPlugins: []
+  jenkinsUriPrefix: "/jenkins"
+  ingress:
+    enabled: true
+    hostName: "choilab.com"
+    path: "/jenkins"
